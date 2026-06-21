@@ -1,0 +1,40 @@
+name: Task 1 Tests
+
+# Runs on pull requests opened from a task1/* branch, and on pushes to any
+# task1/* branch.
+on:
+  pull_request:
+  push:
+    branches:
+      - "task1/**"
+
+jobs:
+  test:
+    # Only run for task1 work: task1/* push branches, or PRs whose source
+    # branch starts with task1/.
+    if: >-
+      (github.event_name == 'push') ||
+      startsWith(github.head_ref, 'task1/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r task1/requirements.txt
+
+      - name: Check code style (ruff)
+        run: |
+          ruff check task1
+          ruff format --check task1
+
+      - name: Run task1 tests
+        run: pytest task1/tests -v

@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test / coverage caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets / local environment
+.env
+*.env
+!*.env.example
+
+# Local databases (Task 3 FastAPI)
+*.db
+*.sqlite3
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Generated task outputs
+day1_outputs/
+task1/outputs/
+task1/output/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+*.swp
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

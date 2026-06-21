@@ -1,0 +1,39 @@
+name: Task 3 Tests
+
+# Runs on pull requests opened from a task3/* branch, and on pushes to any
+# task3/* branch.
+on:
+  pull_request:
+  push:
+    branches:
+      - "task3/**"
+
+jobs:
+  test:
+    # Only run for task3 work: task3/* push branches, or PRs whose source
+    # branch starts with task3/.
+    if: >-
+      (github.event_name == 'push') ||
+      startsWith(github.head_ref, 'task3/')
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: task3
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests with coverage (must be > 98%)
+        run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98
