@@ -36,7 +36,7 @@ def count_active_patients(patient_records):
     """Return the number of active patients."""
     count = 0
     for i in patient_records:
-        if i['active'] == True:
+        if i['active']:
             count += 1
     return count
 
