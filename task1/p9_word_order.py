@@ -21,7 +21,6 @@ def word_order(words: list[str]) -> tuple[int, list[int]]:
 
     for i in words:
         counts[i] = counts.get(i, 0) + 1
-    
     unique = len(counts)
     return (unique, list(counts.values()))
 
