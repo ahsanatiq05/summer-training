@@ -68,9 +68,6 @@ def count_by_condition(patient_records):
             count_dict[i["condition"]] = 1
             
     return count_dict
-        
-
-
 
 if __name__ == "__main__":
     total_patients(patients)
