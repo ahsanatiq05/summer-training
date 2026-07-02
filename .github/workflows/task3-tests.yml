@@ -34,6 +34,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
       - name: Run tests with coverage (must be > 98%)
+        env:
+          SECRET_KEY: test-secret-key-for-ci-only
         run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98
