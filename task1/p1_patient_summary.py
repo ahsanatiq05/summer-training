@@ -1,4 +1,4 @@
-+1"""
+"""
 Task 1 — Patient Summary
 
 Complete this file without using AI tools.
@@ -60,13 +60,11 @@ def count_by_condition(patient_records):
     for j in patient_records:
         if j["condition"] not in conditions:
             conditions.append(j["condition"])
-    
     for i in patient_records:
         if i["condition"] in count_dict:
             count_dict[i["condition"]] += 1
         else:
             count_dict[i["condition"]] = 1
-            
     return count_dict
 
 if __name__ == "__main__":
