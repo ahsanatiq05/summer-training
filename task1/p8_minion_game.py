@@ -31,11 +31,11 @@ def minion_game(word: str) -> str:
     i = 0
     for j in word:
         if j in Vowels:
-            Kevin += ((len(word)) - i)
-            i = i+1
+            Kevin += (len(word)) - i
+            i = i + 1
         else:
-            Stuart += ((len(word))- i)
-            i = i+1
+            Stuart += (len(word)) - i
+            i = i + 1
 
     if Stuart > Kevin:
         return f"Stuart {Stuart}"
@@ -43,6 +43,7 @@ def minion_game(word: str) -> str:
         return "Draw"
     else:
         return f"Kevin {Kevin}"
+
 
 if __name__ == "__main__":
     print(minion_game("BANANA"))

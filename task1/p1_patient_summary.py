@@ -17,7 +17,7 @@ def total_patients(patient_records):
     """Return the total number of patients."""
     count = 0
     for i in patient_records:
-        count = count +1
+        count = count + 1
     return count
 
 
@@ -26,9 +26,9 @@ def average_age(patient_records):
     count = 0
     number = 0
     for i in patient_records:
-        count = count + i['age']
+        count = count + i["age"]
         number += 1
-    avg_age = count/number
+    avg_age = count / number
     return avg_age
 
 
@@ -36,7 +36,7 @@ def count_active_patients(patient_records):
     """Return the number of active patients."""
     count = 0
     for i in patient_records:
-        if i['active']:
+        if i["active"]:
             count += 1
     return count
 
@@ -45,10 +45,10 @@ def unique_conditions(patient_records):
     """Return a sorted list of unique conditions."""
     conditions = []
     for i in patient_records:
-        if i['condition'] in conditions:
+        if i["condition"] in conditions:
             continue
         else:
-            conditions.append(i['condition'])
+            conditions.append(i["condition"])
     conditions.sort()
     return conditions
 
@@ -66,6 +66,7 @@ def count_by_condition(patient_records):
         else:
             count_dict[i["condition"]] = 1
     return count_dict
+
 
 if __name__ == "__main__":
     total_patients(patients)

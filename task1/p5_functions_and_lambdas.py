@@ -14,19 +14,20 @@ patients = [
 
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
     """Calculate BMI."""
-    return weight_kg/(height_m**2)
+    return weight_kg / (height_m**2)
 
 
 def classify_bmi(bmi: float) -> str:
     """Return BMI category."""
     if bmi <= 17:
         return "underweight"
-    if bmi > 17 and  bmi <= 22:
+    if bmi > 17 and bmi <= 22:
         return "normal"
     if bmi > 22 and bmi <= 27:
         return "overweight"
     else:
         return "obese"
+
 
 def format_name(name: str) -> str:
     """Convert a name to title case."""

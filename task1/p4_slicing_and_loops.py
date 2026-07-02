@@ -26,6 +26,7 @@ def loop_examples():
     for pid, name in zip(patient_ids, patient_names):
         print(pid, name)
 
+
 def comprehension_examples():
     """Return values created using comprehensions."""
     even = []

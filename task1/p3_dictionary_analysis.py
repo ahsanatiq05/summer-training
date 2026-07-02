@@ -28,7 +28,6 @@ def get_patient_city(patient_id):
     return patients[patient_id]["contact"]["city"]
 
 
-
 def update_patient_condition(patient_id, new_condition):
     """Update a patient's condition."""
     patients[patient_id]["condition"] = new_condition
@@ -37,10 +36,9 @@ def update_patient_condition(patient_id, new_condition):
 def build_patient_summary():
     """Build and return a summary dictionary."""
     summary = {
-        "total_patients" : len(patients.items()),
-        "max_age" : (max(p["age"] for p in patients.values())),
-        "cities" : (p["contact"]["city"] for p in patients.values())
-
+        "total_patients": len(patients.items()),
+        "max_age": (max(p["age"] for p in patients.values())),
+        "cities": (p["contact"]["city"] for p in patients.values()),
     }
     return summary
 
