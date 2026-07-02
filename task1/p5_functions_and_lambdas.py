@@ -14,7 +14,7 @@ patients = [
 
 def calculate_bmi(weight_kg: float, height_m: float) -> float:
     """Calculate BMI."""
-    return weight_kg/ (height_m**2)
+    return weight_kg/(height_m**2)
 
 
 def classify_bmi(bmi: float) -> str:
@@ -28,7 +28,6 @@ def classify_bmi(bmi: float) -> str:
     else: 
         return "obese"
 
-
 def format_name(name: str) -> str:
     """Convert a name to title case."""
     name = name.lower()
@@ -40,17 +39,15 @@ def get_active_patients(patient_records: list[dict]) -> list[dict]:
     """Return active patients only."""
     patients = []
     for i in patient_records:
-        if i["active"] == True:
+        if i["active"]:
             patients.append(i)
     print(patients)
     return patients
 
 
-
 def sort_patients_by_weight(patient_records: list[dict]) -> list[dict]:
     """Return patients sorted by weight using a lambda."""
-    
-    return sorted (patient_records, key=lambda x: x["weight_kg"])
+    return sorted(patient_records, key=lambda x: x["weight_kg"])
 
 
 if __name__ == "__main__":
