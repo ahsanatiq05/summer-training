@@ -25,7 +25,7 @@ def classify_bmi(bmi: float) -> str:
         return "normal"
     if bmi > 22 and bmi <= 27:
         return "overweight"
-    else: 
+    else:
         return "obese"
 
 def format_name(name: str) -> str:
