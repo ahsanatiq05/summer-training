@@ -20,9 +20,11 @@ def slicing_examples():
 
 def loop_examples():
     """Practice range, enumerate, and zip."""
-    for i in enumerate(patient_ids):
-        zip_result = (zip(patient_ids, patient_names))
+    for index, i in enumerate(patient_ids):
+        print(index, i)
 
+    for pid, name in zip(patient_ids, patinet_name):
+        print(pid, name)
 
 def comprehension_examples():
     """Return values created using comprehensions."""
