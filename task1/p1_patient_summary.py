@@ -1,4 +1,4 @@
-"""
++1"""
 Task 1 — Patient Summary
 
 Complete this file without using AI tools.
@@ -27,7 +27,7 @@ def average_age(patient_records):
     number = 0
     for i in patient_records:
         count = count + i['age']
-        number = number +1
+        number += 1
     avg_age = count/number
     return avg_age
 
@@ -37,7 +37,7 @@ def count_active_patients(patient_records):
     count = 0
     for i in patient_records:
         if i['active'] == True:
-            count = count +1
+            count += 1
     return count
 
 
