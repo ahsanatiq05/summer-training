@@ -24,7 +24,6 @@ def label_risk(risk_score: int) -> str:
         return "medium"
     else:
         return "high"
-    
 
 
 def add_risk_labels(patient_records: list[dict]) -> list[dict]:
@@ -49,8 +48,7 @@ def build_triage_report(patient_records: list[dict]) -> dict:
             counts["medium"] += 1
         elif i["risk_label"] == "high":
             counts["high"] += 1
-    
-    active_high = [p for p in patients_with_labels if p["active"] == True and p["risk_label"] == "high"]
+    active_high = [p for p in patients_with_labels if p["active"] and p["risk_label"] == "high"]
 
     report = {
         "summary" : {
