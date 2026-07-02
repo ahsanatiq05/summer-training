@@ -10,13 +10,23 @@ Then open the interactive docs at http://127.0.0.1:8000/docs
 """
 
 from fastapi import FastAPI
+from app.routers import patients, auth
+from contextlib import asynccontextmanager
+from app.database import create_db_and_tables
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_db_and_tables()
+    yield
 
 app = FastAPI(
     title="Patient Management API",
     description="Training capstone for Task 3 (FastAPI).",
     version="0.1.0",
+    lifespan = lifespan
 )
 
+app.include_router(patients.router)
 
 @app.get("/", tags=["meta"], summary="API root")
 def read_root() -> dict[str, str]:
@@ -29,7 +39,5 @@ def health() -> dict[str, str]:
     """Return the service status. Useful for uptime checks."""
     return {"status": "ok"}
 
+app.include_router(auth.router)
 
-# TODO: create app/routers/patients.py and register it here, e.g.
-#     from app.routers import patients
-#     app.include_router(patients.router)

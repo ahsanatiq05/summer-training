@@ -10,9 +10,9 @@ httpx
 
 # Database, config, and auth
 # pydantic-settings
-# sqlmodel
-# pyjwt
-# passlib[bcrypt]
+sqlmodel
+pyjwt
+passlib[bcrypt]
 
 # Migrations
 # alembic
