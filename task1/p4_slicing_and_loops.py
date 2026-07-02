@@ -23,7 +23,7 @@ def loop_examples():
     for index, i in enumerate(patient_ids):
         print(index, i)
 
-    for pid, name in zip(patient_ids, patinet_name):
+    for pid, name in zip(patient_ids, patinet_names):
         print(pid, name)
 
 def comprehension_examples():
