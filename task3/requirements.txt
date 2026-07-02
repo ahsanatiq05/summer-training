@@ -9,10 +9,11 @@ pytest-cov
 httpx
 
 # Database, config, and auth
-# pydantic-settings
+pydantic-settings
 sqlmodel
-pyjwt
+# pyjwt
 passlib[bcrypt]
+python-jose[cryptography]
 
 # Migrations
 # alembic
