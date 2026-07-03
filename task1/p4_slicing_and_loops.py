@@ -29,12 +29,9 @@ def loop_examples():
 
 def comprehension_examples():
     """Return values created using comprehensions."""
-    even = []
-    for index, i in enumerate(patient_ids):
-        if i % 2 == 0:
-            even.append(i)
+    even = [i for i in patient_ids if i % 2 == 0]
     upper_names = [p.upper() for p in patient_names]
-    return [even, upper_names]
+    return even, upper_names
 
 
 if __name__ == "__main__":

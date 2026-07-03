@@ -25,24 +25,23 @@ def minion_game(word: str) -> str:
 
     Example: "BANANA" -> "Stuart 12".
     """
-    Vowels = ["A", "E", "I", "O", "U"]
-    Stuart = 0
-    Kevin = 0
+    stuart = 0
+    kevin = 0
     i = 0
     for j in word:
-        if j in Vowels:
-            Kevin += (len(word)) - i
+        if j in VOWELS:
+            kevin += (len(word)) - i
             i = i + 1
         else:
-            Stuart += (len(word)) - i
+            stuart += (len(word)) - i
             i = i + 1
 
-    if Stuart > Kevin:
-        return f"Stuart {Stuart}"
-    elif Stuart == Kevin:
+    if stuart > kevin:
+        return f"Stuart {stuart}"
+    elif stuart == kevin:
         return "Draw"
     else:
-        return f"Kevin {Kevin}"
+        return f"Kevin {kevin}"
 
 
 if __name__ == "__main__":

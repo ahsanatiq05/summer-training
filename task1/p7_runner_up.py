@@ -14,15 +14,8 @@ def find_runner_up(scores: list[int]) -> int:
 
     Example: [2, 3, 6, 6, 5] -> 5 (6 is the highest, 5 is the runner-up).
     """
-    unique = []
-    for i in scores:
-        if i not in unique:
-            unique.append(i)
-
-    max_score = max(unique)
-    unique.remove(max_score)
-    print(unique)
-    return max(unique)
+    sec_runner = sorted(set(scores))
+    return sec_runner[-2]
 
 
 if __name__ == "__main__":

@@ -23,9 +23,10 @@ patients = {
 
 def get_patient_city(patient_id):
     """Return the city for a given patient ID."""
-    if patient_id not in patients:
+    try:
+        return patients[patient_id]["contact"]["city"]
+    except KeyError:
         return None
-    return patients[patient_id]["contact"]["city"]
 
 
 def update_patient_condition(patient_id, new_condition):
