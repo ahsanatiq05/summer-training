@@ -1,10 +1,11 @@
 from sqlmodel import SQLModel, create_engine, Session
+from app.config import settings
 
-sqlite_file_name = "patients.db"
+connect_args = {}
+if settings.database_url.startswith("sqlite"):
+    connect_args = {"check_same_thread": False}
 
-sqlite_url = f"sqlite:///{sqlite_file_name}"
-
-engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
+engine = create_engine(settings.database_url, connect_args=connect_args)
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
