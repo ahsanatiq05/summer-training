@@ -1,20 +1,18 @@
 name: Task 3 Tests
 
-# Runs on pull requests opened from a task3/* branch, and on pushes to any
-# task3/* branch.
 on:
   pull_request:
   push:
     branches:
       - "task3/**"
+      - "Task3/**"
 
 jobs:
   test:
-    # Only run for task3 work: task3/* push branches, or PRs whose source
-    # branch starts with task3/.
     if: >-
       (github.event_name == 'push') ||
-      startsWith(github.head_ref, 'task3/')
+      startsWith(github.head_ref, 'task3/') ||
+      startsWith(github.head_ref, 'Task3/')
     runs-on: ubuntu-latest
 
     defaults:
@@ -34,6 +32,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Create .env file for testing
+        run: echo "secret_key=test-secret-key-for-ci-only" > .env
 
       - name: Run tests with coverage (must be > 98%)
         run: pytest -v --cov=app --cov-report=term-missing --cov-fail-under=98
