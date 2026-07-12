@@ -7,13 +7,16 @@ pydantic
 pytest
 pytest-cov
 httpx
+python-multipart
 
 # Database, config, and auth
 pydantic-settings
 sqlmodel
 # pyjwt
+bcrypt<4.0.0
 passlib[bcrypt]
 python-jose[cryptography]
+psycopg[binary]
 
 # Migrations
 # alembic
